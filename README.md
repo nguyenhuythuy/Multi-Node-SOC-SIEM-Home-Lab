@@ -17,3 +17,7 @@ Xây dựng môi trường trung tâm giám sát an toàn thông tin (SOC) thu n
 - `configs/`: Cấu hình mạng tĩnh Netplan và bộ luật giám sát tiến trình `auditd` (`execve`, `/etc/passwd`, `/etc/shadow`, `/etc/sudoers`).
 - `incident-reports/`: Báo cáo phân tích sự cố chuẩn quy trình SOC & ánh xạ MITRE ATT&CK.
 - `screenshots/`: Bằng chứng thực thi tấn công và cảnh báo trên Wazuh SIEM.
+
+## 4. Danh sách Báo cáo Sự cố (Incident Reports)
+- **[IR-001: Tấn công dò mật khẩu SSH (Brute-Force) & Truy cập tệp `/etc/shadow`](incident-reports/IR-001-SSH-BruteForce.md)** — Phân tích chuỗi tấn công Nmap, Hydra, điều tra log đa tầng (`auth.log` + `auditd`) trên Wazuh SIEM và đề xuất khắc phục theo khung MITRE ATT&CK.
+- **[IR-001: Tấn công dò mật khẩu SSH (Brute-Force) & Truy cập tệp `/etc/shadow`](incident-reports/IR-001-SSH-BruteForce.md)** — Phân tích chuỗi tấn công Nmap, Hydra, điều tra log đa tầng (`auth.log` + `auditd`) trên Wazuh SIEM và đề xuất khắc phục theo khung MITRE ATT&CK.
