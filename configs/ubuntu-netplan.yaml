@@ -1,0 +1,12 @@
+network:
+  version: 2
+  ethernets:
+    ens33:
+      dhcp4: no
+      addresses:
+        - 20.20.10.8/24
+      routes:
+        - to: default
+          via: 20.20.10.1
+      nameservers:
+        addresses: [20.20.10.1, 8.8.8.8]

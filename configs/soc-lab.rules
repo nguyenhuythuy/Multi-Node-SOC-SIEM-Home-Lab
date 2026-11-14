@@ -1,0 +1,4 @@
+-a exit,always -F arch=b64 -S execve -k audit-wazuh-c
+-w /etc/passwd -p wa -k identity
+-w /etc/shadow -p wa -k identity
+-w /etc/sudoers -p wa -k privilege_esc
