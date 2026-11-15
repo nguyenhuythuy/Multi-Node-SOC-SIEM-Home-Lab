@@ -84,8 +84,22 @@ Quy tắc tùy chỉnh SID `1000001` trên giao diện `em023565` của pfSense 
 
 ## 6. Bằng chứng điều tra (Forensic Evidence)
 
-### Cảnh báo NIDS trên pfSense Suricata
+### 6.1 Cấu hình thu thập log trên máy chủ Web (IIS Logging & Sysmon / Wazuh Agent)
+* **Thiết lập ghi nhật ký W3C trên IIS WebServer (`W3SVC2`):**
+  ![IIS Logging Configuration](../screenshots/06a-windows-iis-logging-config.png)
+
+* **Trạng thái hoạt động của Sysmon và dịch vụ Wazuh Agent:**
+  ![Sysmon and Wazuh Agent Configuration](../screenshots/06b-windows-sysmon-wazuh-agent.png)
+
+### 6.2 Giai đoạn Rà quét & Khai thác SQL Injection (Attacker)
+* **Kiểm thử tham số tồn tại lỗ hổng trên `OrderDetail.aspx`:**
+  ![Attacker SQLi Probing](../screenshots/07a-attacker-sqli-probing.png)
+
+* **Trích xuất danh sách 8 bảng trong cơ sở dữ liệu `Hotels` bằng SQLmap:**
+  ![Attacker SQLmap Enumeration](../screenshots/07b-attacker-sqlmap-enum.png)
+
+### 6.3 Cảnh báo lớp mạng biên (pfSense Suricata NIDS)
 ![Suricata NIDS Alerts](../screenshots/08-suricata-nids-alerts.png)
 
-### Tương quan sự kiện & Chi tiết log trên Wazuh SIEM
+### 6.4 Tương quan sự kiện & Chi tiết điều tra trên Wazuh SIEM
 ![Wazuh SQLi SIEM Events](../screenshots/09-wazuh-sqli-siem-events.png)
