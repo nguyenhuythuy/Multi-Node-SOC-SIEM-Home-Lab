@@ -1,6 +1,6 @@
-# Incident Response Report: IR-002 — Khai thác & Phát hiện tấn công SQL Injection (IIS + SQL Server)
+# Báo cáo Ứng phó Sự cố: IR-002 — Khai thác & Phát hiện tấn công SQL Injection (IIS + SQL Server)
 
-## Thông tin tổng quan sự cố (Incident Metadata)
+## Thông tin tổng quan sự cố
 
 | Thuộc tính | Chi tiết |
 | :--- | :--- |
@@ -16,7 +16,7 @@
 
 ---
 
-## 1. Tóm tắt điều hành (Executive Summary)
+## 1. Tóm tắt điều hành
 
 Ngày 15/11/2026, hệ thống giám sát phát hiện luồng truy vấn khai thác lỗ hổng **SQL Injection** xuất phát từ địa chỉ IP `192.168.220.109` nhắm vào tham số `Id` trên trang `/OrderDetail.aspx` của máy chủ web `www.luxurytreats.com` (`20.20.10.7`). Do ứng dụng ASP.NET nối chuỗi trực tiếp dữ liệu đầu vào vào câu truy vấn SQL, kẻ tấn công đã trích xuất thành công danh sách 8 bảng trong cơ sở dữ liệu `Hotels` trên Microsoft SQL Server 2022.
 
@@ -24,7 +24,7 @@ Ngày 15/11/2026, hệ thống giám sát phát hiện luồng truy vấn khai t
 
 ---
 
-## 2. Diễn biến tấn công & Tương quan log (Timeline & Telemetry Correlation)
+## 2. Diễn biến tấn công & Tương quan nhật ký
 
 | Mốc thời gian | Nguồn dữ liệu | Mô tả sự kiện |
 | :--- | :--- | :--- |
@@ -36,7 +36,7 @@ Ngày 15/11/2026, hệ thống giám sát phát hiện luồng truy vấn khai t
 
 ---
 
-## 3. Phân tích kỹ thuật & Điều tra số (Forensic Analysis)
+## 3. Phân tích kỹ thuật & Điều tra số
 
 ### 3.1 Khai thác ứng dụng & Liệt kê cơ sở dữ liệu
 * **Điểm cuối tồn tại lỗ hổng:** `GET /OrderDetail.aspx?Id=ORD-001`
@@ -58,7 +58,7 @@ Quy tắc tùy chỉnh SID `1000001` trên giao diện `em023565` của pfSense 
 
 ---
 
-## 4. Chỉ số nhận diện xâm nhập (Indicators of Compromise — IoCs)
+## 4. Chỉ số nhận diện xâm nhập (IoCs)
 
 | Loại chỉ số | Giá trị | Ngữ cảnh |
 | :--- | :--- | :--- |
@@ -69,7 +69,7 @@ Quy tắc tùy chỉnh SID `1000001` trên giao diện `em023565` của pfSense 
 
 ---
 
-## 5. Biện pháp ngăn chặn & Khắc phục (Containment & Remediation)
+## 5. Biện pháp ngăn chặn & Khắc phục
 
 1. **Ngăn chặn tại biên mạng (Perimeter Containment):**
    * Chặn IP `192.168.220.109` trên Firewall Rules của pfSense.
@@ -82,7 +82,7 @@ Quy tắc tùy chỉnh SID `1000001` trên giao diện `em023565` của pfSense 
 
 ---
 
-## 6. Bằng chứng điều tra (Forensic Evidence)
+## 6. Bằng chứng điều tra
 
 ### 6.1 Cấu hình thu thập log trên máy chủ Web (IIS Logging & Sysmon / Wazuh Agent)
 * **Thiết lập ghi nhật ký W3C trên IIS WebServer (`W3SVC2`):**
