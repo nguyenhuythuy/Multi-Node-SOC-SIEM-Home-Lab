@@ -21,3 +21,4 @@ Xây dựng môi trường trung tâm giám sát an toàn thông tin (SOC) thu n
 ## 4. Danh sách Báo cáo Sự cố (Incident Reports)
 - **[IR-001: Tấn công dò mật khẩu SSH (Brute-Force) & Truy cập tệp `/etc/shadow`](incident-reports/IR-001-SSH-BruteForce.md)** — Phân tích chuỗi tấn công Nmap, Hydra, điều tra log đa tầng (`auth.log` + `auditd`) trên Wazuh SIEM và đề xuất khắc phục theo khung MITRE ATT&CK.
 - **[IR-001: Tấn công dò mật khẩu SSH (Brute-Force) & Truy cập tệp `/etc/shadow`](incident-reports/IR-001-SSH-BruteForce.md)** — Phân tích chuỗi tấn công Nmap, Hydra, điều tra log đa tầng (`auth.log` + `auditd`) trên Wazuh SIEM và đề xuất khắc phục theo khung MITRE ATT&CK.
+* [IR-002: Khai thác & Phát hiện tấn công SQL Injection (IIS + SQL Server)](incident-reports/IR-002-sql-injection.md) — Phân tích chuỗi tấn công SQLmap, cấu hình luật phát hiện Suricata NIDS (`1000001`) kết hợp log IIS (`W3SVC2`) trên Wazuh SIEM (`100101`) theo khung MITRE ATT&CK `T1190`.
