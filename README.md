@@ -11,7 +11,7 @@ Xây dựng môi trường trung tâm giám sát an toàn thông tin (SOC) thu n
 | **SIEM Server** | Ubuntu Server | `20.20.10.5` | Wazuh Manager, Indexer, Dashboard |
 | **Target 1 (Web)** | Windows 10 IIS | `20.20.10.7` | IIS Web Server, Sysmon, Wazuh Agent |
 | **Target 2 (Linux)** | Ubuntu Server 22.04 | `20.20.10.8` | OpenSSH, Auditd (`execve`, FIM), Wazuh Agent |
-| **Attacker** | Ubuntu Desktop (Attacker) | `20.20.10.16` | Nmap, Hydra, Metasploit, SQLmap |
+| **Attacker** | Ubuntu Desktop (Attacker) | `20.20.10.16` / `192.168.220.109` (WAN) | Nmap, Hydra, Metasploit, SQLmap |
 
 ## 3. Cấu trúc Repository
 - `configs/`: Cấu hình mạng tĩnh Netplan và bộ luật giám sát tiến trình `auditd` (`execve`, `/etc/passwd`, `/etc/shadow`, `/etc/sudoers`).
@@ -19,6 +19,5 @@ Xây dựng môi trường trung tâm giám sát an toàn thông tin (SOC) thu n
 - `screenshots/`: Bằng chứng thực thi tấn công và cảnh báo trên Wazuh SIEM.
 
 ## 4. Danh sách Báo cáo Sự cố (Incident Reports)
-- **[IR-001: Tấn công dò mật khẩu SSH (Brute-Force) & Truy cập tệp `/etc/shadow`](incident-reports/IR-001-SSH-BruteForce.md)** — Phân tích chuỗi tấn công Nmap, Hydra, điều tra log đa tầng (`auth.log` + `auditd`) trên Wazuh SIEM và đề xuất khắc phục theo khung MITRE ATT&CK.
 - **[IR-001: Tấn công dò mật khẩu SSH (Brute-Force) & Truy cập tệp `/etc/shadow`](incident-reports/IR-001-SSH-BruteForce.md)** — Phân tích chuỗi tấn công Nmap, Hydra, điều tra log đa tầng (`auth.log` + `auditd`) trên Wazuh SIEM và đề xuất khắc phục theo khung MITRE ATT&CK.
 * [IR-002: Khai thác & Phát hiện tấn công SQL Injection (IIS + SQL Server)](incident-reports/IR-002-sql-injection.md) — Phân tích chuỗi tấn công SQLmap, cấu hình luật phát hiện Suricata NIDS (`1000001`) kết hợp log IIS (`W3SVC2`) trên Wazuh SIEM (`100101`) theo khung MITRE ATT&CK `T1190`.
