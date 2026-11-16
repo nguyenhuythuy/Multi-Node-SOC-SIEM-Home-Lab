@@ -11,7 +11,7 @@ Xây dựng môi trường trung tâm giám sát an toàn thông tin (SOC) thu n
 | **SIEM Server** | Ubuntu Server | `20.20.10.5` | Wazuh Manager, Indexer, Dashboard |
 | **Target 1 (Web)** | Windows 10 IIS | `20.20.10.7` | IIS Web Server, Sysmon, Wazuh Agent |
 | **Target 2 (Linux)** | Ubuntu Server 22.04 | `20.20.10.8` | OpenSSH, Auditd (`execve`, FIM), Wazuh Agent |
-| **Attacker** | Ubuntu Desktop (Attacker) | `20.20.10.16` / `192.168.220.109` (WAN) / `192.168.220.109` (WAN) | Nmap, Hydra, Metasploit, SQLmap |
+| **Attacker** | Ubuntu Desktop (Attacker) | `192.168.220.109` | Nmap, Hydra, Metasploit, SQLmap |
 
 ## 3. Cấu trúc Repository
 - `configs/`: Cấu hình mạng tĩnh Netplan và bộ luật giám sát tiến trình `auditd` (`execve`, `/etc/passwd`, `/etc/shadow`, `/etc/sudoers`).
